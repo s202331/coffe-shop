@@ -1,3 +1,4 @@
+/* --- OGÓLNE USTAWIENIA --- */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -9,8 +10,10 @@ body {
     background: #fcfcfc;
     color: #1f1f1f;
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
+/* --- NAWIGACJA (HEADER) --- */
 .header {
     display: flex;
     justify-content: space-between;
@@ -28,8 +31,14 @@ body {
     text-decoration: none;
     color: #1f1f1f;
     font-weight: 500;
+    transition: color 0.3s;
 }
 
+.header a:hover {
+    color: #c89b63;
+}
+
+/* --- BANER GŁÓWNY (HERO) --- */
 .hero {
     background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../img/hero.png') center/cover no-repeat;
     height: 80vh;
@@ -40,8 +49,13 @@ body {
     color: white;
 }
 
-.hero h1 { font-size: 3rem; margin-bottom: 20px; }
+.hero h1 { 
+    font-size: 3rem; 
+    margin-bottom: 20px; 
+    max-width: 800px;
+}
 
+/* --- PRZYCISKI --- */
 .btn {
     display: inline-block;
     padding: 15px 40px;
@@ -52,9 +66,31 @@ body {
     font-weight: bold;
     border: none;
     cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
 }
 
-.shop, .about, .contact { padding: 80px 5%; text-align: center; }
+.btn:hover {
+    background: #a67c4d;
+    transform: translateY(-2px);
+}
+
+.btn-alt {
+    background: none;
+    border: 1px solid #c89b63;
+    color: #c89b63;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+    font-weight: bold;
+}
+
+/* --- SEKCJA SKLEPU I PRODUKTY --- */
+.shop, .about, .contact { 
+    padding: 80px 5%; 
+    text-align: center; 
+}
 
 .products {
     display: flex;
@@ -70,10 +106,89 @@ body {
     border-radius: 20px;
     width: 300px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
 }
 
-.product img { width: 100%; border-radius: 15px; margin-bottom: 20px; }
+.product:hover {
+    transform: translateY(-10px);
+}
 
+.product img { 
+    width: 100%; 
+    border-radius: 15px; 
+    margin-bottom: 20px; 
+    height: 200px;
+    object-fit: cover;
+}
+
+.price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #c89b63;
+    margin: 15px 0;
+}
+
+.product button {
+    background: #1f1f1f;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    width: 100%;
+    font-family: inherit;
+    font-weight: bold;
+}
+
+/* --- OKNO KOSZYKA (OVERLAY) --- */
+.cart-section {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    width: 90%;
+    max-width: 500px;
+    max-height: 80vh;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 50px rgba(0,0,0,0.3);
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-summary {
+    margin-top: 20px;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.cart-summary label { 
+    display: block; 
+    margin-top: 15px; 
+    font-weight: bold; 
+    font-size: 0.9rem;
+}
+
+.cart-summary select { 
+    width: 100%; 
+    padding: 12px; 
+    margin-top: 5px; 
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: white;
+}
+
+/* --- FORMULARZ KONTAKTOWY --- */
 .contact-form {
     max-width: 500px;
     margin: 40px auto;
@@ -88,6 +203,13 @@ body {
     border: 1px solid #ddd;
     border-radius: 10px;
     width: 100%;
+    font-family: inherit;
 }
 
-footer { padding: 40px; background: #1f1f1f; color: white; text-align: center; }
+/* --- STOPKA --- */
+footer { 
+    padding: 40px; 
+    background: #1f1f1f; 
+    color: white; 
+    text-align: center; 
+}
