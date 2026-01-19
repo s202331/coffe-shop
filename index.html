@@ -3,19 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kawa & Słodycze  | Sklep</title>
+    <title>Kawa & Słodycze | Sklep</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <header class="header">
-    <div class="logo">☕ Kawa & Słodycze</div>
+    <div class="logo">
+        <a href="index.html" style="text-decoration: none; color: inherit;">☕ Kawa & Słodycze</a>
+    </div>
     <nav>
         <a href="#shop">Sklep</a>
         <a href="#about">O nas</a>
         <a href="#contact">Kontakt</a>
-        <span class="cart">🛒 <span id="cart-count">0</span></span>
+        <span class="cart" onclick="toggleCart()" style="cursor: pointer;">
+            🛒 <span id="cart-count">0</span>
+        </span>
     </nav>
 </header>
 
@@ -34,14 +38,45 @@
             <img src="img/coffe.png" alt="Kawa premium">
             <h3>Kawa ziarnista 250g</h3>
             <p class="price">39 zł</p>
-            <button onclick="addToCart()">Dodaj do koszyka</button>
+            <button onclick="addToCart('Kawa ziarnista', 39)">Dodaj do koszyka</button>
         </div>
 
         <div class="product">
             <img src="img/sweets.png" alt="Słodycze rzemieślnicze">
             <h3>Czekolada rzemieślnicza</h3>
             <p class="price">19 zł</p>
-            <button onclick="addToCart()">Dodaj do koszyka</button>
+            <button onclick="addToCart('Czekolada rzemieślnicza', 19)">Dodaj do koszyka</button>
+        </div>
+    </div>
+</section>
+
+<section id="cart-overlay" class="cart-section" style="display: none;">
+    <div class="cart-content">
+        <h2>Twoje zamówienie</h2>
+        <div id="cart-items">
+            </div>
+        
+        <div class="cart-summary">
+            <p><strong>Suma produktów:</strong> <span id="cart-subtotal">0</span> zł</p>
+            
+            <label for="delivery">Opcja dostawy:</label>
+            <select id="delivery" onchange="updateTotal()">
+                <option value="15">Paczkomat (+15 zł)</option>
+                <option value="20">Kurier (+20 zł)</option>
+                <option value="0">Odbiór osobisty (0 zł)</option>
+            </select>
+
+            <label for="payment">Metoda płatności:</label>
+            <select id="payment">
+                <option value="Blik">Blik</option>
+                <option value="Przelew">Przelew tradycyjny</option>
+                <option value="Gotówka">Przy odbiorze</option>
+            </select>
+
+            <p style="font-size: 1.2rem; margin-top: 15px;"><strong>Do zapłaty: <span id="cart-total">0</span> zł</strong></p>
+            
+            <button onclick="goToCheckout()" class="btn">Przejdź do zamówienia</button>
+            <button onclick="toggleCart()" class="btn-alt">Kontynuuj zakupy</button>
         </div>
     </div>
 </section>
@@ -57,7 +92,7 @@
     <form action="https://formspree.io/f/TWÓJ_ID" method="POST" class="contact-form">
         <input type="text" name="name" placeholder="Twoje imię" required>
         <input type="email" name="email" placeholder="Twój e-mail" required>
-        <textarea name="message" placeholder="Co chciałbyś zamówić? (np. 2x Kawa, 1x Czekolada)" rows="5" required></textarea>
+        <textarea id="order-message" name="message" placeholder="Co chciałbyś zamówić? (np. 2x Kawa, 1x Czekolada)" rows="5" required></textarea>
         <button type="submit" class="btn">Wyślij zamówienie</button>
     </form>
 </section>
