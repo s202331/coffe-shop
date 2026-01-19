@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kawa & Słodycze Taty | Sklep</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="header">
+    <div class="logo">☕ Kawa & Słodycze</div>
+    <nav>
+        <a href="#shop">Sklep</a>
+        <a href="#about">O nas</a>
+        <a href="#contact">Kontakt</a>
+        <span class="cart">🛒 <span id="cart-count">0</span></span>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Nowoczesna kawa. Rzemieślnicze słodycze.</h1>
+        <p>Smak premium prosto do Twojego domu</p>
+        <a href="#shop" class="btn">Kup teraz</a>
+    </div>
+</section>
+
+<section id="shop" class="shop">
+    <h2>Nasze Bestsellery</h2>
+    <div class="products">
+        <div class="product">
+            <img src="img/coffee.jpg" alt="Kawa premium">
+            <h3>Kawa ziarnista 250g</h3>
+            <p class="price">39 zł</p>
+            <button onclick="addToCart()">Dodaj do koszyka</button>
+        </div>
+
+        <div class="product">
+            <img src="img/sweets.jpg" alt="Słodycze rzemieślnicze">
+            <h3>Czekolada rzemieślnicza</h3>
+            <p class="price">19 zł</p>
+            <button onclick="addToCart()">Dodaj do koszyka</button>
+        </div>
+    </div>
+</section>
+
+<section id="about" class="about">
+    <h2>O naszej pasji</h2>
+    <p>Tworzymy produkty premium – świeżo paloną kawę i ręcznie robione słodycze. Naturalne składniki. Nowoczesny smak. Zero kompromisów.</p>
+</section>
+
+<section id="contact" class="contact">
+    <h2>Złóż zamówienie</h2>
+    <p>Wypełnij formularz, a my zajmiemy się resztą!</p>
+    <form action="https://formspree.io/f/TWÓJ_ID" method="POST" class="contact-form">
+        <input type="text" name="name" placeholder="Twoje imię" required>
+        <input type="email" name="email" placeholder="Twój e-mail" required>
+        <textarea name="message" placeholder="Co chciałbyś zamówić? (np. 2x Kawa, 1x Czekolada)" rows="5" required></textarea>
+        <button type="submit" class="btn">Wyślij zamówienie</button>
+    </form>
+</section>
+
+<footer>
+    <p>&copy; 2026 Kawa & Słodycze - Projekt dla Taty</p>
+</footer>
+
+<script src="js/cart.js"></script>
+</body>
+</html>
